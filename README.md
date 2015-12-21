@@ -1,6 +1,6 @@
 # meteor-react-example
 
-### Instatation
+### Installation
 ```
 git clone git@github.com:ArthurGerbelot/meteor-react-example.git
 cd meteor-react-example
