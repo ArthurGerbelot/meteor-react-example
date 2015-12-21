@@ -27,6 +27,7 @@ ecmascript-runtime@0.2.6
 ejson@1.0.7
 es5-shim@4.1.14
 fastclick@1.0.7
+fourseven:scss@3.4.1
 geojson-utils@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
@@ -36,6 +37,7 @@ id-map@1.0.4
 insecure@1.0.4
 jquery@1.11.4
 jsx@0.2.3
+juliancwirko:zf5@2.0.2
 kadira:flow-router-ssr@3.7.3
 kadira:react-layout@1.5.3
 launch-screen@1.0.4
