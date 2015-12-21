@@ -10,10 +10,13 @@ HomeApp = React.createClass({
     return data;
   },
   render() {
-    return <div id="home">
+    return <div id="home row">
       <h1>Home page</h1>
       <h3>Games</h3>
       {this._renderGames()}
+      <a className='btn btn-primary'>
+        <i className="fa fa-plus"/>Create
+      </a>
     </div>
   },
 
