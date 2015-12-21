@@ -1,16 +1,10 @@
 var gamesRoutes = FlowRouter.group({
-  // prefix: '/',
-  // name: 'games-routes',
-  triggersEnter: [function(context, redirect) {
-    console.log('Running into game groupe');
-    console.log(' - context : ', context);
-    console.log(' - redirect : ', redirect);
-  }]
+  triggersEnter: []
 });
 
-gamesRoutes.route('/', {
+FlowRouter.route('/', {
+  name: 'home',
   action: function(params, queryParams) {
-    console.log("You are on the home listing page");
     ReactLayout.render(MainLayout, {
       content() {
         return <HomeApp />;
@@ -18,9 +12,9 @@ gamesRoutes.route('/', {
     });
   }
 });
-gamesRoutes.route('/game/:game_id', {
+FlowRouter.route('/game/:game_id', {
+  name: 'game',
   action: function(params, queryParams) {
-    console.log("You are on game page :", params.game_id);
     ReactLayout.render(MainLayout, {
       content() {
         return <GameApp game_id={params.game_id}/>;

@@ -2,13 +2,13 @@ MainLayout = React.createClass({
   render() {
     return <div>
       <header>
-        This is our header
+        [LOGO]
       </header>
       <main>
         {this.props.content()}
       </main>
       <footer>
-        This is our footer
+        By ArthyFiciel
       </footer>
     </div>
   }

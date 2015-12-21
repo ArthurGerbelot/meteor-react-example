@@ -3,5 +3,5 @@ Meteor.publish('games', () => {
 });
 
 Meteor.publish('singleGame', _id => {
-  return Game.find({_id});
+  return Games.find({_id});
 });

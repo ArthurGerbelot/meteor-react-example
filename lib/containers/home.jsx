@@ -10,10 +10,8 @@ HomeApp = React.createClass({
     return data;
   },
   render() {
-    console.log("Render Home - ", this.props);
     return <div id="home">
       <h1>Home page</h1>
-
       <h3>Games</h3>
       {this._renderGames()}
     </div>
@@ -26,8 +24,11 @@ HomeApp = React.createClass({
 
     return <ul>
       {this.data.games.map(game => {
+        let path = 'game/' + game._id
         return <li key={'game-' + game._id}>
-          {game.name}
+          <a href={path}>
+            {game.name}
+          </a>
         </li>
       })}
     </ul>
