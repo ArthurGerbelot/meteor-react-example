@@ -1,6 +1,18 @@
 
 header {
+  padding: 10px 15px;
+  font-size: 1.2em;
   background: #ccc;
+
+  .user-account {
+    float: right;
+
+    // Hack for Meteor login popup
+    #login-dropdown-list {
+      left: -175px;
+      top: 25px;
+    }
+  }
 }
 
 footer {

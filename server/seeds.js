@@ -1,4 +1,7 @@
-Games.remove({});
-Games.insert({
-  name: 'Pre-insert game'
-});
+
+
+// Games.remove({});
+// Games.insert({
+//   name: 'Pre-insert game',
+//   users: {}
+// });

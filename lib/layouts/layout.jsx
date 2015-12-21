@@ -2,9 +2,12 @@ MainLayout = React.createClass({
   render() {
     return <div>
       <header>
-        [LOGO]
+        <UserAccount />
+        <div className="logo">
+          [LOGO]
+        </div>
       </header>
-      <main>
+      <main className="container">
         {this.props.content()}
       </main>
       <footer>
