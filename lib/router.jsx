@@ -22,3 +22,9 @@ FlowRouter.route('/game/:game_id', {
     });
   }
 });
+FlowRouter.route('/play/:game_id', {
+  name: 'play',
+  action: (param, queryParams) => {
+    BlazeLayout.render('play');
+  }
+})

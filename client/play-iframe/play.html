@@ -1,0 +1,7 @@
+<template name="play">
+  {{#if Template.subscriptionsReady}}
+    <canvas width="{{getWidth}}" height="{{getHeight}}" id="canvas"></canvas>
+  {{else}}
+    Loading
+  {{/if}}
+</template>
