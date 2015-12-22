@@ -25,3 +25,8 @@ fortawesome:fontawesome
 reywood:bootstrap3-sass
 accounts-ui
 accounts-password
+meteorhacks:npm
+
+
+npm-container
+cosmos:browserify

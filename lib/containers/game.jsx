@@ -45,9 +45,7 @@ GameApp = React.createClass({
     </div>
   },
   _renderGame() {
-    if (!this.data.game) {
-      return
-    }
+
     return <canvas></canvas>
   },
   _renderUsers() {

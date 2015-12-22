@@ -11,6 +11,7 @@ meteor
 ### Packages
 ```
 meteor remove autopublish
+meteor remove insecure
 meteor add react
 meteor add kadira:flow-router-ssr
 meteor add kadira:react-layout
