@@ -1,3 +1,30 @@
+
+// if (Meteor.isClient) {
+//   var Surface = ReactCanvas.Surface;
+//   var Image = ReactCanvas.Image;
+//   var Text = ReactCanvas.Text;
+// }
+var count = 0;
+var draw = (game) => {
+  console.log("draw");
+
+
+
+  var c = document.getElementById( "canvas" );
+  var ctx= c.getContext("2d");
+
+  ctx.clearRect(0,0,200,200);
+
+  var text = 'Hello kiwi!';
+  ctx.font = "30pt Verdana";
+  ctx.textAlign = "left";
+  ctx.textBaseline = "top";
+  var textPxLength = ctx.measureText(text);
+  ctx.fillStyle = "darkgreen";
+  ctx.fillText(count,25,50);
+
+};
+
 GameApp = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
@@ -26,8 +53,32 @@ GameApp = React.createClass({
     console.log("getMeteorData - data : ", data);
     return data;
   },
+  getInitialState() {
+    return {
+      redraw_canvas: true
+    }
+  },
+  componentDidMount() {
+    let self = this;
+
+    setInterval(() => {
+      let redraw_canvas = self.state.redraw_canvas;
+      if (redraw_canvas) {
+        self.setState({
+          redraw_canvas: false
+        });
+        draw(self.data.game);
+      }
+    }, 100);
+  },
+  _isClicked: function() {
+    count++;
+    this.setState({
+      redraw_canvas: true
+    });
+  },
   render() {
-    return <div id="game" className="row">
+    var html = (<div id="game" className="row">
       <div className="col-xs-12">
         <h1>
           {this.data.game ? "Game " + this.data.game.name : 'Loading game'}
@@ -42,11 +93,28 @@ GameApp = React.createClass({
       <div className="col-md-3 col-xs-12">
         {this._renderUsers()}
       </div>
-    </div>
+    </div>);
+
+    console.log("After creating html");
+
+    return html;
   },
   _renderGame() {
+    console.log("RenderGame: isServer : " + Meteor.isServer + " | isClient : " + Meteor.isClient);
+    // if (Meteor.isServer)
+    //   return;
 
-    return <canvas></canvas>
+    var surfaceWidth = 100; //typeof window !== 'undefined' && window.innerWidth / 2;
+    var surfaceHeight = 100; //surfaceWidth / 2; //window.innerHeight;
+// console.log("Surface : ", Surface, (
+//       <Surface width={surfaceWidth} height={surfaceHeight} left={0} top={0}>
+//         <Image style={imageStyle} src='http://www.menucool.com/slider/jsImgSlider/images/image-slider-1.jpg' />
+//       </Surface>
+//     ));
+    return (
+      <canvas id="canvas" ref="canvas" width={surfaceWidth} height={surfaceHeight} onClick={this._isClicked}>
+      </canvas>
+    );
   },
   _renderUsers() {
     if (!this.data.users) {
