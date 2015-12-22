@@ -11,7 +11,7 @@ MainLayout = React.createClass({
         {this.props.content()}
       </main>
       <footer>
-        By ArthyFiciel
+        By <a href="https://github.com/ArthurGerbelot/meteor-react-example">ArthyFiciel</a>
       </footer>
     </div>
   }

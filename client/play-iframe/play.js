@@ -1,14 +1,20 @@
 var draw = function(ctx, game) {
   console.log("Draw : ", game);
 
-  ctx.clearRect(0,0,1000,1000)
+  ctx.clearRect(0,0,1000,1000);
+
+  ctx.beginPath();
+  ctx.rect(150, 150, 200, 200);
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = 'black';
+  ctx.stroke();
 
   let user = Meteor.user();
   let is_player = false;
 
   ctx.fillStyle = "#FF0000";
   for (id in game.users) {
-    ctx.fillRect(game.users[id].x, game.users[id].y, 25, 25);
+    ctx.fillRect(150 + game.users[id].x, 150 + game.users[id].y, 25, 25);
     if (user && user._id === id) {
       is_player = true;
     }
@@ -65,7 +71,7 @@ Template.play.events({
     var size = 20;
 
     var step = 15;
-    var limit = 200;
+    var limit = 200 - size;
 
     let game_id = FlowRouter.getParam('game_id');
     let user = Meteor.user();
